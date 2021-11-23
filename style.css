@@ -1,0 +1,33 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+.container {
+   display: flex;
+   justify-content: center;
+}
+.images {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr;
+}
+.images > div {
+   height: 200px;
+}
+.images > div > img {
+   width: 200px;
+   height: 200px;
+   border: 1px solid white;
+}
+[data-place] {
+   position: relative;
+}
+[data-place] > span {
+   position: absolute;
+   margin-left: auto;
+   margin-right: auto;
+   left: 0;
+   right: 0;
+   text-align: center;
+}
