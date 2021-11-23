@@ -31,7 +31,6 @@ function render() {
          <img src="./cutted image with imgonline.com/image_part_00${
             i + 1
          }.jpg"">
-         <span>${i}</span>
       </div>   
    `;
       imagesContainer.insertAdjacentHTML("beforeend", div);
