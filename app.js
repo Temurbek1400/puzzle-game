@@ -1,13 +1,15 @@
 // ? SET UP TEST
 const imagesContainer = document.querySelector(".images");
 const images = document.querySelectorAll("img");
-let placingRender = [0, 1, 2, 3, 4, 5, 6, 7, 8].sort(
-   (a, b) => 0.5 - Math.random()
-);
+const NUMBER_OF_IMAGES = 16; // !THIS GAME IS DYNAMIC😎
 let lastSelected = null;
+let placingRender = [...Array(NUMBER_OF_IMAGES)]
+   .map((undef, i) => i)
+   .sort((a, b) => 0.5 - Math.random());
 let steps = null;
 render();
 // ? FUNCTIONS
+
 function logic(div) {
    div.addEventListener("click", () => {
       div.style.opacity = "0.6";
@@ -24,17 +26,19 @@ function logic(div) {
 function render() {
    steps++;
    imagesContainer.innerHTML = "";
-   let check = [];
+   let check = true;
    placingRender.forEach((i, j) => {
       const div = `
       <div data-place="${j}">
-         <img src="./cutted image with imgonline.com/image_part_00${i + 1}.jpg">
+         <img src="./cutted image with imgonline.com/image_part_0${
+            i === 0 ? "0" + (i + 1) : i < 9 ? "0" + (i + 1) : i + 1
+         }.jpg">
       </div>   
    `;
       imagesContainer.insertAdjacentHTML("beforeend", div);
-      if (i === j) check.push(true);
+      if (i !== j) check = false;
    });
-   if (check.length === 9) {
+   if (check) {
       alert("You have won in " + steps + " steps");
    }
    imagesContainer.childNodes.forEach((div) => logic(div));

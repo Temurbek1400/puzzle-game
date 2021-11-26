@@ -9,15 +9,15 @@
 }
 .images {
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   grid-template-rows: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 .images > div {
-   height: 200px;
+   height: 100px;
 }
 .images > div > img {
-   width: 200px;
-   height: 200px;
+   width: 100px;
+   height: 100px;
    border: 1px solid white;
 }
 [data-place] {
